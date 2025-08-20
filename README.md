@@ -1,7 +1,4 @@
 # global-tech-layoffs-analysis-2025
-SQL-based analysis of global tech layoffs in 2022–2025, including data cleaning, wrangling, and trend exploration across companies, regions, and investment stages to uncover business and industry insights.
-
-# Global Tech Layoffs Analysis 2025  
 
 [![SQL](https://img.shields.io/badge/SQL-MySQL-blue)](#)  
 [![Data-Cleaning](https://img.shields.io/badge/Process-Data%20Cleaning-success)](#)  
@@ -18,7 +15,7 @@ The aim is to transform raw layoff records into a reliable dataset and derive in
 ---
 
 ## 📂 Dataset  
-- **Source:** Tech Layoffs Tracker (CSV file included)  
+- **Source:** Tech Layoffs Tracker (CSV file included)  LINK : https://layoffs.fyi/
 - **Records:** 750+ company layoff entries  
 - **Key Columns:**  
   - Company  
@@ -77,24 +74,3 @@ The aim is to transform raw layoff records into a reliable dataset and derive in
 3. Run `Layoffs_Project_Exploratory_Data_Analysis_21_07_25.sql` to reproduce analysis queries and insights.  
 
 ---
-
-## 📊 Sample Outputs  
-
-**Example Query – Top 5 Companies with Highest Layoffs Per Year**  
-```sql
-WITH Company_Year (Company, Years, Total_laid_off) AS (
-    SELECT company, YEAR(`date`), SUM(num_laid_off)
-    FROM layoffs_staging2
-    GROUP BY company, YEAR(`date`)
-), 
-Company_Year_Rank AS (
-    SELECT *, DENSE_RANK() OVER (
-        PARTITION BY Years 
-        ORDER BY Total_Laid_off DESC
-    ) AS Ranking
-    FROM Company_Year
-    WHERE Years IS NOT NULL
-)
-SELECT *
-FROM Company_Year_Rank
-WHERE Ranking <= 5;
