@@ -1,6 +1,7 @@
 # global-tech-layoffs-analysis-2025
 
 [![SQL](https://img.shields.io/badge/SQL-MySQL-blue)](#)  
+[![MySQL](https://img.shields.io/badge/Database-MySQL-orange)](#)  
 [![Data-Cleaning](https://img.shields.io/badge/Process-Data%20Cleaning-success)](#)  
 [![EDA](https://img.shields.io/badge/Analysis-EDA-orange)](#)  
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)  
